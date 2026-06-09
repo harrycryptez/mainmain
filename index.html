@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Daylight Window Cleaning – Calgary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="icon" type="image/png" href="logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',sans-serif;color:#111827;background:#fff;line-height:1.6;overflow-x:hidden}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:40;background:linear-gradient(to right,#1e3a8a,#2563eb);box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.header-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:80px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:56px;width:56px;border-radius:8px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.logo-name{display:block;font-size:1.25rem;font-weight:700;color:#fff;line-height:1.2}
+.logo-sub{display:block;font-size:.85rem;color:#bfdbfe;line-height:1.2}
+.header-right{display:flex;align-items:center;gap:1rem}
+.header-phone{display:flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font-weight:600;transition:color .2s}
+.header-phone:hover{color:#bfdbfe}
+.header-phone svg{width:20px;height:20px;flex-shrink:0}
+.ph-text{display:none}
+@media(min-width:640px){.ph-text{display:inline}}
+.btn-hdr{background:#fff;color:#1e3a8a;font-weight:700;padding:.55rem 1.4rem;border-radius:8px;border:none;cursor:pointer;font-size:1rem;transition:background .2s,transform .1s}
+.btn-hdr:hover{background:#eff6ff;transform:translateY(-1px)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:80px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(30,58,138,.9),rgba(59,130,246,.8))}
+.hero-body{position:relative;z-index:1;text-align:center;max-width:900px;padding:0 1.5rem}
+.hero-body h1{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1.5rem}
+.hero-body p{font-size:clamp(1rem,2.5vw,1.35rem);color:#bfdbfe;margin-bottom:2.5rem;max-width:700px;margin-left:auto;margin-right:auto}
+.btn-hero{background:#fff;color:#1e3a8a;font-weight:700;font-size:1.1rem;padding:.9rem 2.5rem;border-radius:8px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.2);transition:background .2s,transform .15s,box-shadow .15s}
+.btn-hero:hover{background:#eff6ff;transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:sbounce 2s infinite}
+.scroll-wheel{width:24px;height:40px;border:2px solid rgba(255,255,255,.8);border-radius:12px;display:flex;justify-content:center;padding-top:6px}
+.scroll-dot{width:4px;height:10px;background:#fff;border-radius:2px;animation:sdot 2s infinite}
+@keyframes sbounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+@keyframes sdot{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.3;transform:translateY(5px)}}
+
+/* SECTIONS */
+.sec{padding:5rem 1.5rem}
+.sec-inner{max-width:1280px;margin:0 auto}
+.sec-hdr{text-align:center;margin-bottom:4rem}
+.sec-hdr h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:#111827;margin-bottom:1rem}
+.sec-hdr p{font-size:1.05rem;color:#6b7280;max-width:600px;margin:0 auto}
+.sec-hdr-white h2{color:#fff}
+.sec-hdr-white p{color:#bfdbfe}
+
+/* SERVICES */
+.sec-services{background:#f9fafb}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem}
+.svc-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:box-shadow .3s,transform .3s}
+.svc-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.15);transform:translateY(-4px)}
+.svc-img{height:192px;overflow:hidden}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.svc-card:hover .svc-img img{transform:scale(1.06)}
+.svc-body{padding:1.25rem 1.5rem}
+.svc-body h3{font-size:1.1rem;font-weight:700;color:#111827;margin-bottom:.4rem}
+.svc-body p{font-size:.9rem;color:#6b7280;line-height:1.6}
+
+/* GALLERY */
+.sec-gallery{background:#f9fafb}
+.ba-wrap{max-width:900px;margin:0 auto}
+.ba-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.12)}
+.ba-title{background:#1e3a8a;color:#fff;text-align:center;padding:1rem;font-size:1.1rem;font-weight:700}
+.ba-stage{position:relative;height:400px;overflow:hidden;cursor:ew-resize;user-select:none}
+.ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-after{z-index:1}
+.ba-before{z-index:2}
+.ba-handle{position:absolute;top:0;bottom:0;z-index:3;width:4px;background:#fff;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
+.ba-knob{width:52px;height:52px;background:#fff;border-radius:50%;box-shadow:0 3px 15px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ba-knob svg{width:26px;height:26px;stroke:#1e3a8a}
+.ba-lbl{position:absolute;top:1rem;z-index:4;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.3rem .75rem;border-radius:999px}
+.ba-lbl-b{left:1rem;background:rgba(239,68,68,.85);color:#fff}
+.ba-lbl-a{right:1rem;background:rgba(34,197,94,.85);color:#fff}
+.ba-hint{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);color:#fff;font-size:.82rem;padding:.35rem .9rem;border-radius:999px;z-index:4;white-space:nowrap}
+
+/* PRICING */
+.sec-pricing{background:#1e3a8a}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;max-width:800px;margin:0 auto 5rem}
+.price-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 8px 40px rgba(0,0,0,.2);text-align:center;transition:transform .3s}
+.price-card:hover{transform:translateY(-6px)}
+.price-card.hot{border:4px solid #60a5fa}
+.price-badge{display:inline-block;background:#60a5fa;color:#fff;font-size:.8rem;font-weight:700;padding:.25rem 1rem;border-radius:999px;margin-bottom:1rem}
+.price-avatar{width:64px;height:64px;border-radius:50%;overflow:hidden;margin:0 auto 1rem}
+.price-avatar img{width:100%;height:100%;object-fit:cover}
+.price-card h3{font-size:1.35rem;font-weight:700;color:#111827;margin-bottom:.25rem}
+.price-sub{color:#6b7280;font-size:.9rem;margin-bottom:1.5rem}
+.price-row{display:flex;align-items:flex-end;justify-content:center;gap:4px;margin-bottom:1.5rem}
+.price-num{font-size:3rem;font-weight:700;color:#1e3a8a;line-height:1;font-variant-numeric:tabular-nums}
+.price-unit{color:#6b7280;font-size:.9rem;margin-bottom:.5rem}
+.price-feats{list-style:none;text-align:left;margin-bottom:2rem;display:flex;flex-direction:column;gap:.75rem}
+.price-feats li{display:flex;align-items:center;gap:.5rem;color:#374151;font-size:.9rem}
+.price-feats li svg{width:20px;height:20px;flex-shrink:0;stroke:#22c55e}
+.btn-book{width:100%;background:#1e3a8a;color:#fff;font-weight:700;font-size:1rem;padding:.8rem;border-radius:8px;border:none;cursor:pointer;transition:background .2s}
+.btn-book:hover{background:#1e40af}
+.htc{background:rgba(255,255,255,.1);border-radius:16px;padding:2.5rem;max-width:900px;margin:0 auto}
+.htc-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.htc-hdr svg{width:28px;height:28px;stroke:#93c5fd;flex-shrink:0}
+.htc-hdr h3{font-size:1.35rem;font-weight:700;color:#fff}
+.htc>p{color:#bfdbfe;margin-bottom:2rem;font-size:.95rem}
+.htc-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}
+.htc-step{display:flex;gap:1rem}
+.htc-num{width:40px;height:40px;background:#60a5fa;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;flex-shrink:0}
+.htc-step h4{font-weight:600;color:#fff;margin-bottom:.25rem}
+.htc-step p{font-size:.875rem;color:#bfdbfe;line-height:1.6}
+.htc-note{margin-top:2rem;padding:1rem;background:rgba(255,255,255,.1);border-radius:12px;color:#bfdbfe;font-size:.875rem;line-height:1.6}
+.htc-note strong{color:#fff}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+.why-card{border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.1);transition:box-shadow .3s,transform .3s}
+.why-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.18);transform:translateY(-4px)}
+.why-img{height:192px;overflow:hidden}
+.why-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.why-card:hover .why-img img{transform:scale(1.06)}
+.why-body{padding:1.5rem;background:#fff}
+.why-body h3{font-size:1.1rem;font-weight:700;color:#111827;margin-bottom:.4rem}
+.why-body p{font-size:.875rem;color:#6b7280;line-height:1.6}
+
+/* REVIEWS */
+.sec-reviews{background:#fff}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem}
+.rev-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.75rem;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:box-shadow .3s}
+.rev-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.12)}
+.stars{display:flex;gap:2px;margin-bottom:1rem}
+.stars svg{width:20px;height:20px;fill:#facc15;stroke:#facc15}
+.rev-text{color:#374151;font-style:italic;margin-bottom:1rem;line-height:1.7;font-size:.93rem}
+.rev-name{font-weight:600;color:#111827;font-size:.9rem}
+.rev-loc{font-size:.8rem;color:#9ca3af}
+
+/* AREAS */
+.sec-areas{background:#f9fafb}
+.areas-map{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.15);margin-bottom:3rem;height:384px}
+.areas-map img{width:100%;height:100%;object-fit:cover}
+.areas-overlay{position:absolute;inset:0;background:rgba(30,58,138,.7);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+.areas-overlay svg{width:64px;height:64px;stroke:#fff;margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto}
+.areas-overlay h3{font-size:2rem;font-weight:700}
+.areas-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}.area-chip{flex:0 1 160px}
+.area-chip{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:1.5rem;text-align:center;transition:box-shadow .2s}
+.area-chip:hover{box-shadow:0 4px 20px rgba(0,0,0,.14)}
+.area-chip svg{width:24px;height:24px;stroke:#1e3a8a;margin:0 auto .5rem;display:block}
+.area-chip p{font-weight:600;color:#111827}
+
+/* CONTACT */
+.sec-contact{background:#1e3a8a}
+.contact-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:3rem}.contact-item{flex:1 1 220px;max-width:280px}
+.contact-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;text-decoration:none;transition:background .2s;color:inherit}
+.contact-item:hover{background:rgba(255,255,255,.2)}
+.contact-item svg{width:48px;height:48px;stroke:#fff;margin-bottom:1rem}
+.contact-item h3{font-size:1rem;font-weight:600;color:#fff;margin-bottom:.25rem}
+.contact-item p{color:#bfdbfe;font-size:.9rem}
+.contact-cta{text-align:center}
+.btn-wlg{background:#fff;color:#1e3a8a;font-weight:700;font-size:1.1rem;padding:1rem 2.5rem;border-radius:8px;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.15);transition:background .2s,transform .15s}
+.btn-wlg:hover{background:#eff6ff;transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#111827;color:#d1d5db;padding:2.5rem 1.5rem}
+.foot-inner{max-width:1280px;margin:0 auto;text-align:center}
+footer h3{font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+footer .foot-desc{color:#9ca3af;font-size:.9rem;margin-bottom:1.5rem}
+.foot-div{border-top:1px solid #374151;padding-top:1.5rem;margin-top:1.5rem}
+.foot-div p{font-size:.8rem;color:#6b7280}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-bd{position:absolute;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+.modal-box{position:relative;width:100%;max-width:800px;max-height:90vh;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);transform:scale(.95) translateY(20px);transition:transform .3s ease}
+.modal-overlay.open .modal-box{transform:scale(1) translateY(0)}
+.modal-close{position:absolute;top:.75rem;right:.75rem;z-index:10;background:#fff;border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:background .2s}
+.modal-close:hover{background:#f3f4f6}
+.modal-close svg{width:20px;height:20px;stroke:#374151}
+.modal-box iframe{width:100%;height:90vh;border:none;display:block}
+
+/* FADE-IN */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:640px){
+  .ba-stage{height:260px}
+  .sec{padding:3.5rem 1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <img src="logo.png" alt="Daylight Window Cleaning logo"/>
+      <div>
+        <span class="logo-name">Daylight</span>
+        <span class="logo-sub">Window Cleaning</span>
+      </div>
+    </a>
+    <div class="header-right">
+      <a href="tel:437-212-8572" class="header-phone">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        <span class="ph-text">437-212-8572</span>
+      </a>
+      <button class="btn-hdr" onclick="openModal()">Book Now</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1421940943431-d392fcc1079f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920" alt="Clean windows"/>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-body">
+    <h1>Crystal Clear Windows, Every Time</h1>
+    <p>Professional residential and commercial window cleaning in Calgary and surrounding areas.</p>
+    <button class="btn-hero" onclick="openModal()">Book Now</button>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-wheel"><div class="scroll-dot"></div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec sec-services" id="services">
+  <div class="sec-inner">
+    <div class="sec-hdr fu">
+      <h2>Our Services</h2>
+      <p>Comprehensive window cleaning solutions for homes and businesses</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fu">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1421940943431-d392fcc1079f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Exterior"/></div>
+        <div class="svc-body"><h3>Exterior Window Cleaning</h3><p>Remove dirt, grime, and weather residue for sparkling clean exterior windows.</p></div>
+      </div>
+      <div class="svc-card fu">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1634842570200-8b2936c7d86d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Interior"/></div>
+        <div class="svc-body"><h3>Interior Window Cleaning</h3><p>Streak-free interior cleaning that leaves your windows crystal clear.</p></div>
+      </div>
+      <div class="svc-card fu">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1772475385581-9bec234dc2ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Screens"/></div>
+        <div class="svc-body"><h3>Screen Cleaning</h3><p>Thorough cleaning and maintenance of window screens for better airflow.</p></div>
+      </div>
+      <div class="svc-card fu">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1512479373983-bd28a541041b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Tracks"/></div>
+        <div class="svc-body"><h3>Track Cleaning</h3><p>Deep cleaning of window tracks and sills to ensure smooth operation.</p></div>
+      </div>
+      <div class="svc-card fu">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1621831337128-35676ca30868?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Commercial"/></div>
+        <div class="svc-body"><h3>Commercial Buildings</h3><p>Professional window cleaning for office buildings, storefronts, and multi-story commercial properties.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY / BEFORE-AFTER -->
+<section class="sec sec-gallery" id="gallery">
+  <div class="sec-inner">
+    <div class="sec-hdr fu">
+      <h2>Before &amp; After</h2>
+      <p>See the difference professional window cleaning makes</p>
+    </div>
+    <div class="ba-wrap fu">
+      <div class="ba-card">
+        <div class="ba-title">Professional Window Cleaning Results</div>
+        <div class="ba-stage" id="ba-stage">
+          <img class="ba-after" src="https://i.imgur.com/LZBa2l0.jpeg" alt="After cleaning" draggable="false"/>
+          <img class="ba-before" id="ba-before" src="https://i.imgur.com/U29egcF.jpeg" alt="Before cleaning" draggable="false" style="clip-path:inset(0 50% 0 0)"/>
+          <div class="ba-handle" id="ba-handle" style="left:50%">
+            <div class="ba-knob">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
+            </div>
+          </div>
+          <div class="ba-lbl ba-lbl-b">Before</div>
+          <div class="ba-lbl ba-lbl-a">After</div>
+          <div class="ba-hint">Drag to compare</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec sec-pricing" id="pricing">
+  <div class="sec-inner">
+    <div class="sec-hdr sec-hdr-white fu">
+      <h2>Simple, Transparent Pricing</h2>
+      <p>No hidden fees. You only pay for what gets cleaned.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card fu">
+        <div class="price-avatar"><img src="https://images.unsplash.com/photo-1421940943431-d392fcc1079f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200" alt="Exterior"/></div>
+        <h3>Exterior Cleaning</h3>
+        <p class="price-sub">Per frame, outside only</p>
+        <div class="price-row">
+          <span class="price-num" data-target="7.99" data-dec="2">$0.00</span>
+          <span class="price-unit">&nbsp;/ frame</span>
+        </div>
+        <ul class="price-feats">
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Streak-free squeegee finish</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Includes window sill wipe-down</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>All heights &amp; story levels</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Residential &amp; commercial</li>
+        </ul>
+        <button class="btn-book" onclick="openModal()">Book Now</button>
+      </div>
+      <div class="price-card hot fu">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-avatar"><img src="https://images.unsplash.com/photo-1634842570200-8b2936c7d86d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200" alt="Interior"/></div>
+        <h3>Interior Cleaning</h3>
+        <p class="price-sub">Per window, inside only</p>
+        <div class="price-row">
+          <span class="price-num" data-target="4.99" data-dec="2">$0.00</span>
+          <span class="price-unit">&nbsp;/ window</span>
+        </div>
+        <ul class="price-feats">
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Crystal-clear lint-free finish</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Tracks &amp; frames wiped clean</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Safe for all glass types</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Residential &amp; commercial</li>
+        </ul>
+        <button class="btn-book" onclick="openModal()">Book Now</button>
+      </div>
+    </div>
+    <div class="htc fu">
+      <div class="htc-hdr">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/></svg>
+        <h3>How to count your frames &amp; windows</h3>
+      </div>
+      <p>Not sure how many frames you have? Follow these simple steps before booking — it takes about 5 minutes and helps us give you an accurate quote instantly.</p>
+      <div class="htc-steps">
+        <div class="htc-step"><div class="htc-num">1</div><div><h4>Find a window opening</h4><p>Stand outside and look at one window opening in your wall — that's the hole cut into the wall.</p></div></div>
+        <div class="htc-step"><div class="htc-num">2</div><div><h4>Count the panes (frames)</h4><p>Each glass panel inside that opening is one frame. A window divided by a center bar = 2 frames.</p></div></div>
+        <div class="htc-step"><div class="htc-num">3</div><div><h4>Walk around the whole house</h4><p>Go room by room and count every frame on every floor, including basement windows and glass doors.</p></div></div>
+        <div class="htc-step"><div class="htc-num">4</div><div><h4>Separate exterior vs interior</h4><p>Decide if you want outside only, inside only, or both. You'll need that count for each service.</p></div></div>
+      </div>
+      <div class="htc-note"><strong>Quick example:</strong> A typical Calgary 2-storey home has 20–35 frames. At $7.99/frame exterior that's roughly $160–$280 for a full exterior clean — no surprises.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="sec" id="why">
+  <div class="sec-inner">
+    <div class="sec-hdr fu">
+      <h2>Why Choose Us</h2>
+      <p>Professional window cleaning services you can trust</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fu">
+        <div class="why-img"><img src="https://images.unsplash.com/photo-1637763723578-79a4ca9225f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Insured"/></div>
+        <div class="why-body"><h3>Fully Insured</h3><p>Complete liability and worker's compensation coverage for your peace of mind.</p></div>
+      </div>
+      <div class="why-card fu">
+        <div class="why-img"><img src="https://images.unsplash.com/photo-1421940943431-d392fcc1079f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Reliable"/></div>
+        <div class="why-body"><h3>Reliable Service</h3><p>On-time arrivals and consistent quality you can count on.</p></div>
+      </div>
+      <div class="why-card fu">
+        <div class="why-img"><img src="https://images.unsplash.com/photo-1634842570200-8b2936c7d86d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Pricing"/></div>
+        <div class="why-body"><h3>Affordable Pricing</h3><p>Competitive rates with transparent pricing and no hidden fees.</p></div>
+      </div>
+      <div class="why-card fu">
+        <div class="why-img"><img src="https://images.unsplash.com/photo-1580893246395-52aead8960dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Satisfaction"/></div>
+        <div class="why-body"><h3>Satisfaction Guaranteed</h3><p>We're not happy until you're happy. 100% satisfaction guarantee.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec sec-reviews" id="reviews">
+  <div class="sec-inner">
+    <div class="sec-hdr fu">
+      <h2>Customer Reviews</h2>
+      <p>Don't just take our word for it – hear from our satisfied customers</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card fu">
+        <div class="stars"><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+        <p class="rev-text">"Exceptional service! They arrived on time, were very professional, and did an amazing job. My windows have never looked better. Highly recommend!"</p>
+        <div class="rev-name">Sarah Johnson</div><div class="rev-loc">Mahogany</div>
+      </div>
+      <div class="rev-card fu">
+        <div class="stars"><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+        <p class="rev-text">"Great experience from start to finish. The quote was fair, the team was friendly, and the results exceeded my expectations. Will definitely use again."</p>
+        <div class="rev-name">Michael Chen</div><div class="rev-loc">Auburn Bay</div>
+      </div>
+      <div class="rev-card fu">
+        <div class="stars"><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+        <p class="rev-text">"I've used several window cleaning services over the years, but Daylight is by far the best. They pay attention to details and truly care about customer satisfaction."</p>
+        <div class="rev-name">Emily Rodriguez</div><div class="rev-loc">Cranston Riverstone</div>
+      </div>
+      <div class="rev-card fu">
+        <div class="stars"><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+        <p class="rev-text">"Professional, efficient, and affordable. They cleaned all the windows in our office building and did a fantastic job. We'll be using them regularly."</p>
+        <div class="rev-name">David Thompson</div><div class="rev-loc">McKenzie Towne</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="sec sec-areas" id="areas">
+  <div class="sec-inner">
+    <div class="sec-hdr fu">
+      <h2>Service Areas</h2>
+      <p>Proudly serving Calgary and surrounding communities</p>
+    </div>
+    <div class="areas-map fu">
+      <img src="https://images.unsplash.com/photo-1617687550985-e3ad939d2831?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920" alt="Calgary skyline"/>
+      <div class="areas-overlay">
+        <div>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <h3>Serving Calgary &amp; Area</h3>
+        </div>
+      </div>
+    </div>
+    <div class="areas-grid">
+      <div class="area-chip fu"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg><p>Calgary</p></div>
+      <div class="area-chip fu"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg><p>Okotoks</p></div>
+      <div class="area-chip fu"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg><p>Chestermere</p></div>
+      <div class="area-chip fu"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg><p>Airdrie</p></div>
+      <div class="area-chip fu"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg><p>Cochrane</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec sec-contact" id="contact">
+  <div class="sec-inner">
+    <div class="sec-hdr sec-hdr-white fu">
+      <h2>Ready for Sparkling Clean Windows?</h2>
+      <p>Contact us today for a free quote</p>
+    </div>
+    <div class="contact-grid fu">
+      <a href="tel:437-212-8572" class="contact-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        <h3>Phone</h3><p>437-212-8572</p>
+      </a>
+      <a href="mailto:daylightclean.yyc@outlook.com" class="contact-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        <h3>Email</h3><p>daylightclean.yyc@outlook.com</p>
+      </a>
+      <div class="contact-item">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+        <h3>Location</h3><p>Calgary, Alberta</p>
+      </div>
+    </div>
+    <div class="contact-cta fu">
+      <button class="btn-wlg" onclick="openModal()">Book Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <h3>Daylight Window Cleaning</h3>
+    <p class="foot-desc">Professional Window Cleaning Services in Calgary, Alberta</p>
+    <div class="foot-div"><p id="fyear"></p></div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-label="Book a quote">
+  <div class="modal-bd" onclick="closeModal()"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <iframe src="https://form.jotform.com/260787483157065" title="Quote Request Form" allowfullscreen scrolling="yes"></iframe>
+  </div>
+</div>
+
+<script>
+// Footer year
+document.getElementById('fyear').textContent =
+  '\u00A9 ' + new Date().getFullYear() + ' Daylight Window Cleaning. All rights reserved.';
+
+// Modal
+function openModal() {
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+// Before/After slider
+(function() {
+  var stage = document.getElementById('ba-stage');
+  var before = document.getElementById('ba-before');
+  var handle = document.getElementById('ba-handle');
+  var dragging = false;
+
+  function setPos(x) {
+    var r = stage.getBoundingClientRect();
+    var pct = Math.max(0, Math.min(100, (x - r.left) / r.width * 100));
+    before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    handle.style.left = pct + '%';
+  }
+
+  handle.addEventListener('mousedown', function() { dragging = true; });
+  document.addEventListener('mouseup', function() { dragging = false; });
+  document.addEventListener('mousemove', function(e) { if (dragging) setPos(e.clientX); });
+  handle.addEventListener('touchstart', function(e) { dragging = true; e.preventDefault(); }, { passive: false });
+  document.addEventListener('touchend', function() { dragging = false; });
+  document.addEventListener('touchmove', function(e) { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+})();
+
+// Fade-up on scroll
+(function() {
+  var els = document.querySelectorAll('.fu');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var siblings = Array.from(e.target.parentElement.querySelectorAll('.fu:not(.vis)'));
+      var idx = siblings.indexOf(e.target);
+      setTimeout(function() { e.target.classList.add('vis'); }, Math.min(idx, 5) * 90);
+      obs.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+
+// Count-up for prices
+(function() {
+  var nums = document.querySelectorAll('.price-num[data-target]');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      var target = parseFloat(el.dataset.target);
+      var dec = parseInt(el.dataset.dec) || 0;
+      var start = performance.now();
+      var dur = 1400;
+      function tick(now) {
+        var p = Math.min((now - start) / dur, 1);
+        var ep = 1 - Math.pow(1 - p, 3);
+        el.textContent = '$' + (ep * target).toFixed(dec);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.3 });
+  nums.forEach(function(n) { obs.observe(n); });
+})();
+</script>
+</body>
+</html>
