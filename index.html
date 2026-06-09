@@ -493,15 +493,24 @@ document.getElementById('fyear').textContent =
 
 // Modal
 function openModal() {
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
 
+    // ФИКС СКРОЛЛА: Принудительно держим окно в самом верху
+    const modalBox = document.querySelector('.modal-box');
+    if (modalBox) {
+        modalBox.scrollTop = 0;
+
+        // Серия быстрых проверок, чтобы перебить автофокус Jotform при загрузке фрейма
+        let count = 0;
+        const forceTop = setInterval(() => {
+            modalBox.scrollTop = 0;
+            count++;
+            if (count > 20) clearInterval(forceTop); // Держим ровно 1 секунду (20 * 50мс)
+        }, 50);
+    }
+}
+    
 // Before/After slider
 (function() {
   var stage = document.getElementById('ba-stage');
